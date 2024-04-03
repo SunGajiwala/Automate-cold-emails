@@ -10,3 +10,11 @@ CREATE TABLE users (
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 """
+
+SQL Query to add email constarint
+
+"""
+ALTER TABLE hr_info
+ADD CONSTRAINT valid_email CHECK (email ~* '^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}$');
+"""
+

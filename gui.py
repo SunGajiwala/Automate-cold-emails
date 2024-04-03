@@ -1,8 +1,8 @@
 import tkinter as tk
 from tkinter import messagebox
 import psycopg2
-import os
 import credentials as cred
+import re
 
 def add_user():
     name = name_entry.get()
@@ -11,6 +11,10 @@ def add_user():
     dbname=cred.dbname
     user=cred.user
     password=cred.password
+
+    if not re.match(r"[^@]+@[^@]+\.[^@]+", email):
+        messagebox.showerror("Error", "Invalid email address")
+        return
 
     try:
         connection = psycopg2.connect(
@@ -26,10 +30,10 @@ def add_user():
         cursor.execute(insert_query, (name, email, company))
         connection.commit()
 
-        messagebox.showinfo("Success", "User added successfully")
+        messagebox.showinfo("Success", "HR Info added successfully")
 
     except psycopg2.Error as e:
-        messagebox.showerror("Error", f"Error adding user: {e}")
+        messagebox.showerror("Error", f"Error adding HR Info: {e}")
 
     finally:
         if connection:
