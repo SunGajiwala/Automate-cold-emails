@@ -22,7 +22,7 @@ def add_user():
         )
         cursor = connection.cursor()
 
-        insert_query = "INSERT INTO users (name, email, company) VALUES (%s, %s, %s)"
+        insert_query = "INSERT INTO hr_info (name, email, company) VALUES (%s, %s, %s)"
         cursor.execute(insert_query, (name, email, company))
         connection.commit()
 
