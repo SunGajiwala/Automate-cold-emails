@@ -63,7 +63,7 @@ company_entry = tk.Entry(root)
 company_entry.grid(row=2, column=1, padx=5, pady=5)
 
 # Add button
-add_button = tk.Button(root, text="Add HR details", command=add_user, height=30)
+add_button = tk.Button(root, text="Add HR details", command=add_user)
 add_button.grid(row=3, column=0, padx=5, pady=10)
 
 add_new_button = tk.Button(root, text="Add New", command=clear_entries)

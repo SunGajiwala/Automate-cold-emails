@@ -24,7 +24,7 @@ except Exception as e:
         print(f"Error: {e}")
 
 sql_query = """
-SELECT * FROM users WHERE created_at >= CURRENT_TIMESTAMP - INTERVAL '1 day'
+SELECT * FROM hr_info WHERE created_at >= CURRENT_TIMESTAMP - INTERVAL '1 day'
 """
 df = pd.read_sql(sql_query,connection)
 df = df.applymap(lambda x: x.strip() if isinstance(x, str) else x)
